@@ -16,3 +16,25 @@ let atletas = [
    notas: [10, 10, 10, 9, 9.5]
  }
 ];
+
+
+function apresentacaoEMedia(objAtletas) {
+  let saida = []
+  let media = 0
+  let matrizatual = []
+
+  for (let i = 0; i < objAtletas.length; i++) {
+
+    /// organizar as notas do menor para o maior
+    objAtletas[i].notas.sort(function(n1, n2) {
+      return n1 - n2
+    })
+
+  }
+
+
+
+  console.log(objAtletas)
+}
+
+apresentacaoEMedia(atletas)
