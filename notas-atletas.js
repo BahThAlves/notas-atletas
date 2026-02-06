@@ -18,10 +18,11 @@ let atletas = [
 ];
 
 
-function apresentacaoEMedia(objAtletas) {
-  let saida = []
+function dadosFinais(objAtletas) {
+  let calcularMedia = []
+  let soma = 0
   let media = 0
-  let matrizatual = []
+  let dados = []
 
   for (let i = 0; i < objAtletas.length; i++) {
 
@@ -30,11 +31,31 @@ function apresentacaoEMedia(objAtletas) {
       return n1 - n2
     })
 
+    /// cortar os 3 do meio
+    calcularMedia.push({
+      nome: objAtletas[i].nome,
+      notas: objAtletas[i].notas.slice(1,4)
+    })
   }
 
+  
+    /// media
+    for(let i = 0; i < calcularMedia.length; i++) {
+      soma = 0
+        for(let j = 0; j < calcularMedia[i].notas.length; j++) {
+            soma += calcularMedia[i].notas[j]
+        }
+        media = soma / 3
 
+        /// montar dados
+        dados.push({
+            atleta: objAtletas[i].nome,
+            notasObtidas: objAtletas[i].notas,
+            mediaValida: media
+        })
+    }
 
-  console.log(objAtletas)
+    return dados
 }
 
-apresentacaoEMedia(atletas)
+console.log(dadosFinais(atletas))
